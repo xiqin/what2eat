@@ -1,0 +1,25 @@
+<view class="container">
+   <view class="description">
+    今天吃什么？
+  </view>
+
+    
+  <view class='card-tag'>
+  </view>
+    
+
+  <view class="food-name">
+    <label class='food-label'>宜</label>
+     吃 [{{name}}]
+  </view>  
+
+  <view class='usermotto'>
+    <button size='mini' plain='true' bindtap='getRandom'>
+      {{btnText}}
+    </button>
+  </view>
+
+  <view class='sys-view' bindtap='handletouchtart'>
+    <icon class='iconfont icon2add'></icon> 
+  </view> 
+</view>

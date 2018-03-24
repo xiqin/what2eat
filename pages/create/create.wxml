@@ -1,0 +1,27 @@
+    <view class='create-box'>
+  <label class='label-text' wx:for='{{items}}' wx:for-item="item" bindlongpress='openSelect' bindtap='selecting' data-value="{{item.name}}" data-id="{{index}}">
+    <icon wx:if="{{canOperate}}" type='success' size='15' color="{{item.selected ? '' : '#ccc'}}" class='icon-select'></icon>
+    <text class='text'>{{item.name}}</text>
+  </label>
+
+  <label class='label-add'>
+     <icon class='iconfont icon-add' bindtap='addItem'></icon> 
+  </label>
+</view>
+
+<view class='add-mask' wx:if="{{creating}}" bindtap='hideMask'></view> 
+
+<view animation="{{animationData}}" class='textarea-view' wx:if="{{creating}}">
+  <form bindsubmit='saveItems'>
+    <textarea name="textarea" class='textarea' fixed="true" show-confirm-bar="false" auto-focus='true'></textarea>
+    <view class="textarea-bottom">
+      <label class='label'>多个美食之间用英文分号 ; 分隔</label>
+      <button form-type='submit' size='mini' plain='true' type='primary'>确定</button>
+    </view>
+  </form>
+</view>
+
+<view class='btn-del' wx:if="{{canOperate}}">
+  <button size='mini' bindtap="cancel">取消</button>
+  <button size='mini' disabled="{{selectArr.length > 0 ? false : true}}" bindtap="delItems">删除</button>
+</view>
